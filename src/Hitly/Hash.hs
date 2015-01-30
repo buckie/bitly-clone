@@ -2,6 +2,8 @@
 
 module Hitly.Hash (createReturn) where
 
+import BasePrelude
+
 import Crypto.Hash.SHA1 (hash)
 import Data.Text.Lazy.Encoding
 import Data.Text.Lazy

@@ -1,7 +1,6 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE DeriveGeneric #-}
-
 module Hitly.Server where
+
+import BasePrelude
 
 import Hitly.Hash
 import Hitly.Types ()

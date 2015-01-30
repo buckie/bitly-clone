@@ -1,11 +1,8 @@
 import BasePrelude
 import Data.Hashable (Hashable)
 import Control.Monad.Free
-import Control.Monad.Free.TH
 import qualified STMContainers.Map as SC
-import qualified Control.Concurrent.Async as Async
-import qualified Data.Char as Char
-import qualified Data.Text as Text
+-- import qualified Control.Concurrent.Async as Async
 
 -- * Transactions
 -------------------------
