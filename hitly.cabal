@@ -19,10 +19,10 @@ source-repository    head
   type:              git
   location:               https://github.com/buckie/hitly
 
-executable bitly-clone
+executable hitly
   main-is:             Main.hs
   -- other-modules:       
   -- other-extensions:    
-  build-depends:       base >= 4.7 && < 4.8, warp, scotty, hashtables, cryptohash
+  build-depends:       base >= 4.7 && < 4.8, warp, scotty, hashtables, cryptohash, bytestring
   hs-source-dirs:      src
   default-language:    Haskell2010
