@@ -3,8 +3,8 @@
 
 name:                hitly
 version:             0.1.0.0
--- synopsis:            
--- description:         
+synopsis:            Concurrent Bitly Clone
+description:         A concurrent bitly clone written for a Hacker School job-prep project (it sounded like fun)
 license:             MIT
 license-file:        LICENSE
 author:              buckie
@@ -23,6 +23,6 @@ executable hitly
   main-is:             Main.hs
   -- other-modules:       
   -- other-extensions:    
-  build-depends:       base >= 4.7 && < 4.8, warp, scotty, hashtables, cryptohash, bytestring
+  build-depends:       base >= 4.7 && < 4.8, warp, scotty, hashtables, cryptohash, bytestring, stm-containers
   hs-source-dirs:      src
   default-language:    Haskell2010
