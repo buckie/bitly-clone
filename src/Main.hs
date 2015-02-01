@@ -1,6 +1,7 @@
 module Main where
 
 -- import System.Environment (getArgs)
+import BasePrelude
 
 import Hitly.Server
 import Hitly.Types
@@ -11,4 +12,5 @@ import Hitly.Hash
 --                1 ->  SL8.putStrLn $ mkLink $ args !! 0
 --                _ ->  error "Program takes only 0 or 1 argument"
 
+main :: IO ()
 main = runServer

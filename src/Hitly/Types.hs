@@ -1,19 +1,16 @@
 module Hitly.Types where
 
 import BasePrelude
-import Data.ByteString.Lazy.Char8 (ByteString)
+import Data.ByteString.Char8 (ByteString)
 import Data.Text
 import Data.Aeson
 
 type Hash = ByteString
 
 data HitlyRequest = HitlyRequest {
-                        user :: !Text,
-                        url  :: !Text
+                        user :: !ByteString,
+                        url  :: !ByteString
                       } deriving (Show, Generic)
-
-instance FromJSON HitlyRequest
-instance ToJSON HitlyRequest
 
 data HitlyReturn = HitlyReturn {
                         shorturl  :: !Text

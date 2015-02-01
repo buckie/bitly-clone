@@ -20,5 +20,5 @@ viaBuilder = decodeUtf8 . toLazyByteString . byteStringHexFixed
 mkHash :: S8.ByteString -> T.Text
 mkHash = toStrict . viaBuilder . hash
 
-createReturn :: S8.ByteString -> HitlyReturn
-createReturn = HitlyReturn . mkHash
+createReturn :: HitlyRequest -> HitlyReturn
+createReturn (HitlyRequest userName longUrl) = HitlyReturn . mkHash . S8.concat $ [userName, longUrl]
