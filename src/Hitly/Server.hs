@@ -22,7 +22,6 @@ runserver = scotty 3000 $ do
     get "/" $ do
         file "index.html"
 
-
     post "/create-link" $ do
         longUrl <- param "url"
         userName <- param "username"
@@ -33,14 +32,14 @@ runserver = scotty 3000 $ do
 
     get "/info/:hash" $ do
         hash <- param "hash"
-        check <- atomicIO $ getLink hash shortenedMap
+        check <- atomicIO $ lookupLinkInfo hash shortenedMap
         case check of
             Nothing -> raise $ mconcat ["URL hash #", T.pack $ show $ hash, " not found in database!"]
             Just x  -> json $ x
 
     get "/:hash" $ do
         hash <- param "hash"
-        check <- atomicIO $ getAndTickCounter hash shortenedMap
+        check <- atomicIO $ lookupLink hash shortenedMap
         case check of
             Just (HitlyRequest _ url _) -> redirect $ url
             Nothing                     -> raise $ mconcat ["URL hash #", T.pack $ show $ hash, " not found in database!"]
