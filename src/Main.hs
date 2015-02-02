@@ -8,4 +8,4 @@ import Hitly.Types
 import Hitly.Hash
 
 main :: IO ()
-main = runServer
+main = runserver

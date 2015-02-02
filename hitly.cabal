@@ -23,7 +23,7 @@ executable hitly
   main-is:             Main.hs
   -- other-modules:       
   -- other-extensions:    
-  build-depends:        base >= 4.7 && < 4.8, base-prelude, warp, scotty, hashtables, cryptohash, bytestring, stm-containers, aeson, text, free, hashable, async
+  build-depends:        base >= 4.7 && < 4.8, base-prelude, warp, scotty, hashtables, cryptohash, bytestring, stm-containers, aeson, text, free, hashable, async, containers, transformers, blaze-html, wai-extra, wai-middleware-static
    -- primitive == 0.5.*,
    -- mtl-prelude < 3,
    -- base-prelude == 0.1.*

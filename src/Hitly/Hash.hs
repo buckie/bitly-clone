@@ -1,24 +1,18 @@
 {- LANGUAGE BangPatterns -}
 
-module Hitly.Hash (createReturn) where
+module Hitly.Hash (mkHash) where
 
 import BasePrelude
 
-import Crypto.Hash.SHA1 (hash)
-import Data.Text.Lazy.Encoding
-import Data.Text.Lazy
-import qualified Data.Text as T
+import Crypto.Hash.SHA1 (hashlazy)
+import qualified Data.Text.Lazy.Encoding as TL
+import qualified Data.Text.Lazy as T
 import           Data.ByteString.Lazy.Builder
 import           Data.ByteString.Lazy.Builder.ASCII
 import qualified Data.ByteString.Char8 as S8
 
-import Hitly.Types
+viaBuilder :: S8.ByteString -> T.Text
+viaBuilder = TL.decodeUtf8 . toLazyByteString . byteStringHexFixed
 
-viaBuilder :: S8.ByteString -> Text
-viaBuilder = decodeUtf8 . toLazyByteString . byteStringHexFixed
-
-mkHash :: S8.ByteString -> T.Text
-mkHash = toStrict . viaBuilder . hash
-
-createReturn :: HitlyRequest -> HitlyReturn
-createReturn (HitlyRequest userName longUrl) = HitlyReturn . mkHash . S8.concat $ [userName, longUrl]
+mkHash :: [T.Text] -> T.Text
+mkHash = viaBuilder . hashlazy . TL.encodeUtf8 . T.concat
