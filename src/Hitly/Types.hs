@@ -1,10 +1,20 @@
-module Hitly.Types where
+module Hitly.Types (
+  Hashable,
+  Hash,
+  AppMap,
+  HitlyRequest(..),
+  HitlyReturn(..)
+  )
+  where
 
 import BasePrelude
 import Data.ByteString.Char8 (ByteString)
 import Data.Text.Lazy
 import Data.Aeson
-import Data.Hashable
+import Data.Hashable (Hashable)
+import qualified STMContainers.Map as SC
+
+type AppMap = SC.Map Text HitlyRequest
 
 type Hash = ByteString
 
