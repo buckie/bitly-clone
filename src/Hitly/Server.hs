@@ -45,7 +45,7 @@ runserver = scotty 3000 $ do
         check <- liftIO $ atomically $ SC.lookup hash shortenedMap
         case check of
             Nothing -> raise $ mconcat ["URL hash #", T.pack $ show $ hash, " not found in database!"]
-            Just (HitlyRequest _ url _) -> redirect $ T.pack $ show $ url
+            Just (HitlyRequest _ url _) -> redirect $ url
 
     -- We put /list down here to show that it will not match the '/:hash' route above.
     get "/info/:hash" $ do
